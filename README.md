@@ -83,13 +83,11 @@ https://localhost:7080/swagger
 
 ## Assumptions
 
-- Uses `DateTime.Now` for timestamps.
-- Task status is stored as an integer:
-  - `0 = Pending`
-  - `1 = Completed`
-  - `2 = Expired`
-- All authenticated users can manage all tasks.
-- Background service runs every minute to expire overdue tasks.
+- Timestamps are stored using the server's local time (`DateTime.Now`).
+- Task status is stored as a readable string (`Pending`, `Completed`, `Expired`).
+- All authenticated users can view and manage all tasks.
+- A background service runs every minute to automatically mark overdue pending tasks as `Expired`.
+- JWT Bearer Authentication is used to secure the task management APIs.
 
 ## Postman
 
