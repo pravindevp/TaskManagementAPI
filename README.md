@@ -39,27 +39,6 @@ Migrations/
 Program.cs
 ```
 
-## Database Setup
-
-Run the SQL script:
-
-```text
-Scripts/Database.sql
-```
-
-Update the connection string in `appsettings.json`.
-
-## Run the Application
-
-```bash
-dotnet run
-```
-
-Open Swagger:
-
-```text
-https://localhost:7080/swagger
-```
 
 ## API Endpoints
 
