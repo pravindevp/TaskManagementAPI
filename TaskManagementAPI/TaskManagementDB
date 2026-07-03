@@ -1,0 +1,49 @@
+USE [TaskManagement]
+GO
+/****** Object:  Schema [TASKS]    Script Date: 2026-07-03 09:45:38 ******/
+CREATE SCHEMA [TASKS]
+GO
+/****** Object:  Table [dbo].[Tasks]    Script Date: 2026-07-03 09:45:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tasks](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](200) NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[DueDate] [datetime2](7) NOT NULL,
+	[Status] [nvarchar](20) NOT NULL,
+	[CreatedAt] [datetime2](7) NOT NULL,
+	[UpdatedAt] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Tasks] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 2026-07-03 09:45:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [nvarchar](100) NOT NULL,
+	[PasswordHash] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Tasks] ON 
+
+INSERT [dbo].[Tasks] ([Id], [Title], [Description], [DueDate], [Status], [CreatedAt], [UpdatedAt]) VALUES (2, N'Department Master', N'Create', CAST(N'2026-07-02T21:59:00.7700000' AS DateTime2), N'Expired', CAST(N'2026-07-02T16:28:31.2748992' AS DateTime2), CAST(N'2026-07-02T21:59:21.9319752' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Tasks] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+
+INSERT [dbo].[Users] ([Id], [Username], [PasswordHash]) VALUES (1, N'admin', N'$2a$11$.458QIMtILf4t85.TiUWMez1CbM0oclg9GEZVw.4eK3wASZbu2cvu')
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
